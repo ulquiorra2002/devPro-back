@@ -1,3 +1,49 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from rest_framework import permissions, status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from app.models import Cliente, Etapa,Experto,Inversion,Inversionista,Persona,Proyecto,Tipo
+from app.serializers import PersonaSerializer,ProyectoSerializer,ExpertoSerializer
+from rest_framework import generics
 # Create your views here.
+
+
+class ExpertoList(generics.ListCreateAPIView):
+    queryset = Experto.objects.all()
+    serializer_class =ExpertoSerializer
+
+
+
+class ExpertoDetail(generics.RetrieveUpdateAPIView):
+    queryset = Experto.objects.all()
+    serializer_class =ExpertoSerializer
+
+
+
+
+class ProyectoList(generics.ListCreateAPIView):
+    queryset = Proyecto.objects.all()
+    serializer_class = ProyectoSerializer
+
+
+
+class ProyectoDetail(generics.RetrieveUpdateAPIView):
+    queryset = Proyecto.objects.all()
+    serializer_class =ProyectoSerializer
+
+
+
+
+class PersonaList(generics.ListCreateAPIView):
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+
+
+
+
+class PersonaDetail(generics.RetrieveUpdateAPIView):
+    queryset = Persona.objects.all()
+    serializer_class =PersonaSerializer
