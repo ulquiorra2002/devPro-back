@@ -23,13 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7!4+50_s3*)$@!-kvuo3z%^82ol7r97ik(sxx_m#ux^%c!tu*z'
+SECRET_KEY = '%$3mtmg^4-dqk0gecg6!l8$co72um56w*a57idx4rvbh83helh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#AUTH_USER_MODEL = 'usuario.Cliente'
 
 # Application definition
 
@@ -40,10 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #rest framework
     'rest_framework',
 
     #Locales
-    'app',
+    'usuarios',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +60,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'devpro.urls'
+
+AUTH_USER_MODEL = 'usuarios.usuario'
 
 TEMPLATES = [
     {
@@ -82,12 +89,8 @@ WSGI_APPLICATION = 'devpro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'world' ,
-        'USER':'root',
-        'PASSWORD':'V71858727NEM',
-        'HOST':'127.0.0.1',
-        'PORT':3306,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -129,3 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        # To run tests
+        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
