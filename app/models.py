@@ -62,7 +62,7 @@ class Inversionista(models.Model):
 
 
 class Etapa(models.Model):
-    id_etapa = models.IntegerField(primary_key=True)
+    id_etapa =  models.IntegerField(primary_key=True)
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo')
 
     class Meta:
