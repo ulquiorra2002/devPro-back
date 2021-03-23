@@ -93,6 +93,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bytft6rzmz5pug45loft',
+        'USER':'uitbywlibjsgxlik',
+        'PASSWORD':'4AFwzwahOi4MCq4IDtGe',
+        'HOST':'bytft6rzmz5pug45loft-mysql.services.clever-cloud.com'
+    }
+}
+"""
 
 
 # Password validation
