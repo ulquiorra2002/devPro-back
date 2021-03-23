@@ -89,18 +89,21 @@ WSGI_APPLICATION = 'devpro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bev9ycfrbmrovoadpooc',
+        'USER':'uyikd1tl92incu9b',
+        'PASSWORD':'t9kMr8fv2NG1EfroSfPC',
+        'HOST':'bev9ycfrbmrovoadpooc-mysql.services.clever-cloud.com'
     }
 }
 """
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bytft6rzmz5pug45loft',
-        'USER':'uitbywlibjsgxlik',
-        'PASSWORD':'4AFwzwahOi4MCq4IDtGe',
-        'HOST':'bytft6rzmz5pug45loft-mysql.services.clever-cloud.com'
+        'NAME': 'bev9ycfrbmrovoadpooc',
+        'USER':'uyikd1tl92incu9b',
+        'PASSWORD':'t9kMr8fv2NG1EfroSfPC',
+        'HOST':'bev9ycfrbmrovoadpooc-mysql.services.clever-cloud.com'
     }
 }
 """
