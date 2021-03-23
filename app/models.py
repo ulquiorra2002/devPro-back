@@ -2,13 +2,9 @@ from django.db import models
 
 class Persona(models.Model):
     id_persona = models.IntegerField(primary_key=True)
-    nombre_persona = models.CharField(max_length=45, blank=True, null=True)
     numero_documento_persona = models.CharField(max_length=45, blank=True, null=True)
     direccion_persona = models.CharField(max_length=45, blank=True, null=True)
-    correo_persona = models.CharField(max_length=45, blank=True, null=True)
-    telefono_persona = models.CharField(max_length=45, blank=True, null=True)
-    usuario_persona = models.CharField(max_length=45, blank=True, null=True)
-    contra_persona = models.CharField(max_length=45, blank=True, null=True)
+    usuario= models.OneToOneField('usuarios.Usuario', on_delete=models.CASCADE)
 
     class Meta:
         managed = False
