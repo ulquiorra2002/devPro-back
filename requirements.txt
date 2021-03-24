@@ -1,4 +1,9 @@
-django
+Django
 djangorestframework
 mysqlclient
-djangorestframework-jwt
+pytz
+sqlparse
+django-cors-headers
+django-utils-six
+dj-static
+drf-yasg

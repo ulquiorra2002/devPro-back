@@ -5,12 +5,17 @@ from .models import Usuario
 from.serializers import UsuarioSerializer,UsuarioLoginSerializer,UsuarioRegisterSerializer
 
 
-class UsuarioViewSet(mixins.ListModelMixin,viewsets.GenericViewset):
+class UsuarioViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     queryset=Usuario.objects.all()
 
-    serializer_class=UsuarioSerializer
+    def get_serializer_class(self):
+        if self.action =='register':
+            return UsuarioRegisterSerializer
+        if self.action=='login':
+            return UsuarioLoginSerializer
+        return UsuarioSerializer
 
-    @action(detail=False,methids=['post'])
+    @action(detail=False,methods=['post'])
     def login(self,request):
         serializer=UsuarioLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -23,6 +28,7 @@ class UsuarioViewSet(mixins.ListModelMixin,viewsets.GenericViewset):
     @action(detail=False,methods=['post'])
     def register(self,request):
         serializer=UsuarioRegisterSerializer(data=request.data)
-        Usuario = serializer.save()
-        data = UsuarioSerializer(Usuario).data
+        serializer.is_valid(raise_exception=True)
+        usuario = serializer.save()
+        data = UsuarioSerializer(usuario).data
         return Response(data)

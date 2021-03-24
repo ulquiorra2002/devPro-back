@@ -19,12 +19,13 @@ class UsuarioLoginSerializer(serializers.Serializer):
         fields=['email','password']
 
     def validate(self,data):
-        Usuario = authenticate(
+        usuario = authenticate(
             username=data['email'], password=data['password'])
-        if not Usuario:
+        print(usuario)
+        if not usuario:
             raise serializers.ValidationError('Credenciales ingresadas invalidas')
 
-        self.context['Usuario'] = Usuario
+        self.context['Usuario'] = usuario
         return data
     
     def create(self,data):
@@ -35,11 +36,16 @@ class UsuarioRegisterSerializer(serializers.Serializer):
     email = serializers.EmailField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
+    password = serializers.CharField(min_length=8, max_length=64)
 
     class Meta:
         model = Usuario
-        fields=['email','first_name','last_name']
+        fields=('email','first_name','last_name','password')
+
+    def validate(self, data):
+        return data
 
     def create(self,data):
-        Usuario = Usuario.objects.create(**data)
-        return Usuario
+        data['username']=data['email']
+        usuario = Usuario.objects.create_user(**data)
+        return usuario

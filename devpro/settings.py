@@ -28,7 +28,7 @@ SECRET_KEY = '%$3mtmg^4-dqk0gecg6!l8$co72um56w*a57idx4rvbh83helh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #AUTH_USER_MODEL = 'usuario.Cliente'
 
@@ -42,8 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #CorsHeader
+    'corsheaders',
+
     #rest framework
     'rest_framework',
+
+    #DRF_YASG
+    'drf_yasg',
 
     #Locales
     'usuarios',
@@ -53,6 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -136,6 +143,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'  
+
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -144,4 +153,18 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+#Cors headers permissions
+CORS_ORIGIN_ALLOW_ALL=True
+
+
+SWAGGER_SETTINGS ={
+    'SECURITY_DEFINITIONS':{
+        "Auth Token eg [Bearer (JWT)]":{
+            "type":"apiKey",
+            "name":"Authorization",
+            "in":"headers"
+        }
+    }
 }

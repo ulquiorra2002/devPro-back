@@ -31,5 +31,4 @@ class ProyectoSerializer(serializers.ModelSerializer):
 class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Persona
-        fields = ('id_persona', 'nombre_persona', 'numero_documento_persona',
-                  'direccion_persona', 'correo_persona', 'telefono_persona','usuario_persona','contra_persona')
+        fields = ('id_persona', 'numero_documento_persona','direccion_persona','usuario')
