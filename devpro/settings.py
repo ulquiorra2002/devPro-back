@@ -14,6 +14,7 @@ gola
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +28,8 @@ SECRET_KEY = '%$3mtmg^4-dqk0gecg6!l8$co72um56w*a57idx4rvbh83helh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['devpro-2021.herokuapp.com']
 
 #AUTH_USER_MODEL = 'usuario.Cliente'
 
@@ -168,3 +169,5 @@ SWAGGER_SETTINGS ={
         }
     }
 }
+
+django_heroku.settings(locals())

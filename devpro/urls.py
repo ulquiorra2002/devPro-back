@@ -40,8 +40,8 @@ urlpatterns = [
     path('usuario/', include('usuarios.urls')),
 
     # Documentacion
-    path('swg', schema_view.with_ui('swagger',
+    path('swg/', schema_view.with_ui('swagger',
                                     cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc', schema_view.with_ui('redoc',
+    path('', schema_view.with_ui('redoc',
                                       cache_timeout=0), name='schema-redoc'),
 ]
