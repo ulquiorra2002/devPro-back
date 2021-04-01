@@ -9,7 +9,7 @@ from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Persona,Proye
 class ExpertoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experto
-        fields = ('id_experto', 'id_persona', 'id_tipo',
+        fields = ('id_persona', 'id_tipo',
                   'codigo_experto', 'descripcion_experto')
 
 
@@ -20,7 +20,7 @@ class ExpertoSerializer(serializers.ModelSerializer):
 class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
-        fields = ('id_proyecto', 'id_etapa', 'id_inversion',
+        fields = ('id_etapa', 'id_inversion',
                   'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto')
 
 
@@ -31,4 +31,4 @@ class ProyectoSerializer(serializers.ModelSerializer):
 class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Persona
-        fields = ('id_persona', 'numero_documento_persona','direccion_persona','usuario')
+        fields = ('numero_documento_persona','direccion_persona','usuario')
