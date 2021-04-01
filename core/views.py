@@ -5,8 +5,8 @@ from rest_framework import permissions, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from app.models import Cliente, Etapa,Experto,Inversion,Inversionista,Persona,Proyecto,Tipo
-from app.serializers import PersonaSerializer,ProyectoSerializer,ExpertoSerializer
+from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Persona,Proyecto,Tipo
+from .serializers import PersonaSerializer,ProyectoSerializer,ExpertoSerializer
 from rest_framework import generics
 # Create your views here.
 

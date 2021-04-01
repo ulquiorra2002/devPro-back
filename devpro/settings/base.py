@@ -17,7 +17,7 @@ from pathlib import Path
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,12 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '%$3mtmg^4-dqk0gecg6!l8$co72um56w*a57idx4rvbh83helh'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['*']
-#ALLOWED_HOSTS = ['devpro-2021.herokuapp.com']
-
-#AUTH_USER_MODEL = 'usuario.Cliente'
 
 # Application definition
 
@@ -53,8 +47,8 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     #Locales
+    'core',
     'usuarios',
-    'app'
 ]
 
 MIDDLEWARE = [
@@ -91,19 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'devpro.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bev9ycfrbmrovoadpooc',
-        'USER':'uyikd1tl92incu9b',
-        'PASSWORD':'t9kMr8fv2NG1EfroSfPC',
-        'HOST':'bev9ycfrbmrovoadpooc-mysql.services.clever-cloud.com'
-    }
-}
 
 
 # Password validation
