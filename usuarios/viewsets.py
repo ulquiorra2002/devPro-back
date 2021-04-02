@@ -5,11 +5,13 @@ from .models import Usuario
 from.serializers import UsuarioSerializer,UsuarioLoginSerializer,UsuarioRegisterSerializer
 
 
-class UsuarioViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
+class UsuarioViewSet(mixins.ListModelMixin,mixins.UpdateModelMixin,viewsets.GenericViewSet):
     queryset=Usuario.objects.all()
 
     def get_serializer_class(self):
         if self.action =='register':
+            return UsuarioRegisterSerializer
+        if self.action in ['update','partial_update']:
             return UsuarioRegisterSerializer
         if self.action=='login':
             return UsuarioLoginSerializer
