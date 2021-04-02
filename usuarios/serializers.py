@@ -37,10 +37,12 @@ class UsuarioRegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField()
     last_name = serializers.CharField()
     password = serializers.CharField(min_length=8, max_length=64)
+    photo = serializers.CharField()
+    tipo_usuario = serializers.CharField()
 
     class Meta:
         model = Usuario
-        fields=('email','first_name','last_name','password')
+        fields=('email','first_name','last_name','password','photo','tipo_usuario')
 
     def validate(self, data):
         return data
