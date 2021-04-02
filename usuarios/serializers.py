@@ -31,7 +31,7 @@ class UsuarioLoginSerializer(serializers.Serializer):
     def create(self,data):
         return self.context['Usuario']
 
-class UsuarioRegisterSerializer(serializers.Serializer):
+class UsuarioRegisterSerializer(serializers.ModelSerializer):
 
     email = serializers.EmailField()
     first_name = serializers.CharField()

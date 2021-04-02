@@ -5,7 +5,7 @@ from .models import Usuario
 from.serializers import UsuarioSerializer,UsuarioLoginSerializer,UsuarioRegisterSerializer
 
 
-class UsuarioViewSet(mixins.ListModelMixin,mixins.UpdateModelMixin,viewsets.GenericViewSet):
+class UsuarioViewSet(mixins.ListModelMixin,mixins.UpdateModelMixin,mixins.RetrieveModelMixin,viewsets.GenericViewSet):
     queryset=Usuario.objects.all()
 
     def get_serializer_class(self):
