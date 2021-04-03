@@ -5,8 +5,8 @@ from rest_framework import permissions, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Persona,Proyecto,Tipo
-from .serializers import PersonaSerializer,ProyectoSerializer,ExpertoSerializer
+from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Proyecto,Tipo
+from .serializers import ProyectoSerializer,ExpertoSerializer
 from rest_framework import generics
 # Create your views here.
 
@@ -35,15 +35,3 @@ class ProyectoDetail(generics.RetrieveUpdateAPIView):
     serializer_class =ProyectoSerializer
 
 
-
-
-class PersonaList(generics.ListCreateAPIView):
-    queryset = Persona.objects.all()
-    serializer_class = PersonaSerializer
-
-
-
-
-class PersonaDetail(generics.RetrieveUpdateAPIView):
-    queryset = Persona.objects.all()
-    serializer_class =PersonaSerializer

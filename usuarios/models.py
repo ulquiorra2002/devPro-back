@@ -7,7 +7,8 @@ class Usuario(AbstractUser):
                               'unique': "ya existe este correo"})
     photo = models.CharField(max_length=500,null=True,blank=True)
     tipo_usuario = models.CharField(max_length=50,null=True,blank=True)
-    
+    numero_documento = models.CharField(max_length=50,null=True,blank=True)
+    direccion = models.CharField(max_length=200,null=True,blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
