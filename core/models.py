@@ -6,6 +6,7 @@ class Tipo(models.Model):
     descripcion_tipo = models.CharField(max_length=45, blank=True, null=True)
 
 class Experto(models.Model):
+    id = models.IntegerField(primary_key=True)
     usuario = models.OneToOneField('usuarios.Usuario', on_delete=models.CASCADE)
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo')
     codigo_experto = models.CharField(max_length=45, blank=True, null=True)

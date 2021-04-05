@@ -28,7 +28,7 @@ class ExpertoUSuarioSerializer(serializers.ModelSerializer):
 class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
-        fields = ('id_etapa', 'id_inversion',
+        fields = ('id', 'id_inversion',
                   'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto')
 
 
