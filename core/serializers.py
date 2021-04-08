@@ -21,8 +21,28 @@ class ExpertoUSuarioSerializer(serializers.ModelSerializer):
         fields = ('id','usuario', 'id_tipo',
                   'codigo_experto', 'descripcion_experto')
 
+class ClienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
+        fields = '__all__'
+
+class ClienteUSuarioSerializer(serializers.ModelSerializer):
+    usuario = UsuarioSerializer(read_only=True)
+    class Meta:
+        model = Cliente
+        fields = '__all__'
 
 
+class InversionistaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Inversionista
+        fields = '__all__'
+
+class InversionistaUSuarioSerializer(serializers.ModelSerializer):
+    usuario = UsuarioSerializer(read_only=True)
+    class Meta:
+        model = Inversionista
+        fields = '__all__'
 
 
 class ProyectoSerializer(serializers.ModelSerializer):
