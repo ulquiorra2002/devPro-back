@@ -15,10 +15,12 @@ class Experto(models.Model):
 class Inversion(models.Model):
     id = models.IntegerField(primary_key=True)
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo',blank=True,null=True)
+    descripcion = models.CharField(max_length=45, blank=True, null=True)
 
 class Inversionista(models.Model):
+    id = models.IntegerField(primary_key=True)
+    id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo',blank=True,null=True)
     usuario = models.OneToOneField('usuarios.Usuario', on_delete=models.CASCADE)
-    id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo')
     codigo_inversionista = models.CharField(max_length=45, blank=True, null=True)
     empresa_inversionista = models.CharField(max_length=45, blank=True, null=True)
 
