@@ -29,6 +29,7 @@ class Etapa(models.Model):
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo')
 
 class Cliente(models.Model):
+    id = models.IntegerField(primary_key=True)
     usuario = models.OneToOneField('usuarios.Usuario', on_delete=models.CASCADE)
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo',blank=True,null=True)
     descripcion_cliente = models.CharField(max_length=45, blank=True, null=True)
@@ -41,4 +42,5 @@ class Proyecto(models.Model):
     nombre_proyecto = models.CharField(max_length=45, blank=True, null=True)
     descripcion_proyecto = models.CharField(max_length=200, blank=True, null=True)
     financiamiento_proyecto = models.CharField(max_length=45, blank=True, null=True)
+    photo = models.CharField(max_length=500,null=True,blank=True)
 
