@@ -1,8 +1,7 @@
 from rest_framework import serializers
 #from rest_framework_jwt.settings import api_settings
 #from django.contrib.auth.models import User
-from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Proyecto,Tipo
-
+from .models import *
 from usuarios.models import Usuario
 from usuarios.serializers import UsuarioSerializer
 
@@ -48,8 +47,8 @@ class InversionistaUSuarioSerializer(serializers.ModelSerializer):
 class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
-        fields = ('id', 'id_inversion',
-                  'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto')
+        fields = ('id','id_cliente',
+                  'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto','photo')
 
 
 

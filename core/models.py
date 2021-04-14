@@ -24,21 +24,23 @@ class Inversionista(models.Model):
     codigo_inversionista = models.CharField(max_length=45, blank=True, null=True)
     empresa_inversionista = models.CharField(max_length=45, blank=True, null=True)
 
-
+"""
 class Etapa(models.Model):
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo')
-
+"""
 class Cliente(models.Model):
+    id = models.IntegerField(primary_key=True)
     usuario = models.OneToOneField('usuarios.Usuario', on_delete=models.CASCADE)
     id_tipo = models.ForeignKey('Tipo', models.DO_NOTHING, db_column='id_tipo',blank=True,null=True)
     descripcion_cliente = models.CharField(max_length=45, blank=True, null=True)
 
 
 class Proyecto(models.Model):
-    id_etapa = models.ForeignKey(Etapa, models.DO_NOTHING, db_column='id_etapa')
+    #id_etapa = models.ForeignKey(Etapa, models.DO_NOTHING, db_column='id_etapa')
     id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
     id_inversion = models.ForeignKey(Inversion, models.DO_NOTHING, db_column='id_inversion')
     nombre_proyecto = models.CharField(max_length=45, blank=True, null=True)
     descripcion_proyecto = models.CharField(max_length=200, blank=True, null=True)
     financiamiento_proyecto = models.CharField(max_length=45, blank=True, null=True)
+    photo = models.CharField(max_length=500,null=True,blank=True)
 

@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Cliente, Etapa,Experto,Inversion,Inversionista,Proyecto,Tipo
+from .models import *
 admin.site.register(Cliente)
-admin.site.register(Etapa)
+#admin.site.register(Etapa)
 admin.site.register(Experto)
 admin.site.register(Inversion)
 admin.site.register(Inversionista)
