@@ -38,9 +38,9 @@ class Cliente(models.Model):
 class Proyecto(models.Model):
     #id_etapa = models.ForeignKey(Etapa, models.DO_NOTHING, db_column='id_etapa')
     id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
-    id_inversion = models.ForeignKey(Inversion, models.DO_NOTHING, db_column='id_inversion')
+    id_inversion = models.ForeignKey(Inversion, models.DO_NOTHING, db_column='id_inversion', blank=True,null=True)
     nombre_proyecto = models.CharField(max_length=45, blank=True, null=True)
     descripcion_proyecto = models.CharField(max_length=200, blank=True, null=True)
     financiamiento_proyecto = models.CharField(max_length=45, blank=True, null=True)
     photo = models.CharField(max_length=500,null=True,blank=True)
-    acumulado=models.IntegerField()
+    acumulado=models.IntegerField(blank=True, null=True)
