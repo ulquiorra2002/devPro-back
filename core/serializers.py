@@ -47,15 +47,13 @@ class InversionistaUSuarioSerializer(serializers.ModelSerializer):
 class ProyectoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proyecto
-        fields = ('id','id_cliente',
-                  'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto','photo')
+        fields = '__all__'
 
 class ProyectoClienteSerializer(serializers.ModelSerializer):
     id_cliente=ClienteUSuarioSerializer(read_only=True)
     class Meta:
         model = Proyecto
-        fields = ('id','id_cliente',
-                  'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto','photo')
+        fields = '__all__'
 
 
 
