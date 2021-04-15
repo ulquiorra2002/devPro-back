@@ -43,4 +43,4 @@ class Proyecto(models.Model):
     descripcion_proyecto = models.CharField(max_length=200, blank=True, null=True)
     financiamiento_proyecto = models.CharField(max_length=45, blank=True, null=True)
     photo = models.CharField(max_length=500,null=True,blank=True)
-
+    acumulado=models.IntegerField()

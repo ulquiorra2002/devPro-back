@@ -50,7 +50,16 @@ class InversionistaViewSet(mixins.CreateModelMixin,
         return InversionistaSerializer
 
 
-class ProyectoViewSet(viewsets.ModelViewSet):
+class ProyectoViewSet(mixins.CreateModelMixin,
+                     mixins.ListModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.RetrieveModelMixin,
+                     viewsets.GenericViewSet):
     queryset = Proyecto.objects.all()
-    serializer_class = ProyectoSerializer
+
+    def get_serializer_class(self):
+        if self.action in ('list','retrieve'):
+            return ProyectoClienteSerializer
+        return ProyectoSerializer
+
 

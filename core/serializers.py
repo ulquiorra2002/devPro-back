@@ -50,5 +50,12 @@ class ProyectoSerializer(serializers.ModelSerializer):
         fields = ('id','id_cliente',
                   'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto','photo')
 
+class ProyectoClienteSerializer(serializers.ModelSerializer):
+    id_cliente=ClienteUSuarioSerializer(read_only=True)
+    class Meta:
+        model = Proyecto
+        fields = ('id','id_cliente',
+                  'nombre_proyecto', 'descripcion_proyecto', 'financiamiento_proyecto','photo')
+
 
 
