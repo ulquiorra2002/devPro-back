@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from .models import *
 from .serializers import *
 from rest_framework import generics
-
+from rest_framework.decorators import action
 from rest_framework import viewsets, mixins
 # Create your views here.
 
@@ -61,5 +61,15 @@ class ProyectoViewSet(mixins.CreateModelMixin,
         if self.action in ('list','retrieve'):
             return ProyectoClienteSerializer
         return ProyectoSerializer
+
+    @action(detail=False,methods=['get'],url_path='cliente/(?P<id>[^/.]+)')
+    def cliente(self,request,id,pk=None):
+        id=int(id)
+        print(id)
+        proyectos = Proyecto.objects.filter(id_cliente__id=id)
+        data = ProyectoSerializer(proyectos,many=True).data
+
+        return Response(data)
+
 
 
