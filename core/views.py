@@ -65,9 +65,8 @@ class ProyectoViewSet(mixins.CreateModelMixin,
     @action(detail=False,methods=['get'],url_path='cliente/(?P<id>[^/.]+)')
     def cliente(self,request,id,pk=None):
         id=int(id)
-        print(id)
         proyectos = Proyecto.objects.filter(id_cliente__id=id)
-        data = ProyectoSerializer(proyectos,many=True).data
+        data = ProyectoClienteSerializer(proyectos,many=True).data
 
         return Response(data)
 
