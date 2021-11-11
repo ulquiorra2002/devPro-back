@@ -10,9 +10,9 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bev9ycfrbmrovoadpooc',
-        'USER':'uyikd1tl92incu9b',
-        'PASSWORD':'t9kMr8fv2NG1EfroSfPC',
-        'HOST':'bev9ycfrbmrovoadpooc-mysql.services.clever-cloud.com'
+        'NAME': 'bexhyawjz9hizfadsgiz',
+        'USER':'ub0eh6juiy15jnah',
+        'PASSWORD':'jdQNZe9g7yrzvTTyh9UB',
+        'HOST':'bexhyawjz9hizfadsgiz-mysql.services.clever-cloud.com'
     }
 }
